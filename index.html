@@ -9,6 +9,10 @@
     <link rel="icon" href="./img/logo-smkn1palasah.png" type="image/x-icon">
     <!-- Font Awesome untuk ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts untuk font poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -35,14 +39,23 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <!--banner auto slide-->
+        <div class="banner-img banner-1"></div>
+        <div class="banner-img banner-2"></div>
+        <div class="banner-img banner-3"></div>
+        <!--banner auto slide end-->
+
+        <!--banner content-->
         <div class="hero-content">
             <div id="welcome-message">
                 <h1>SELAMAT DATANG DI SMK NEGERI 1 PALASAH</h1>
                 <p id="personal-greeting">Hai, <span id="visitor-name">Pengunjung</span>!</p>
+
                 <div class="name-input-container">
                     <input type="text" id="name-input" placeholder="Masukkan nama Anda">
                     <button id="set-name-btn">Ganti</button>
                 </div>
+
             </div>
             <p class="tagline">Membentuk Generasi Unggul Berkarakter dan Berwawasan Luas Untuk Indonesia Emas</p>
             <div class="hero-buttons">
@@ -50,6 +63,7 @@
                 <a href="#kontak" class="btn btn-secondary">Hubungi Kami</a>
             </div>
         </div>
+        <!--banner content end-->
     </section>
 
     <!-- Highlights/Features Section -->
@@ -57,21 +71,25 @@
         <div class="container">
             <h2 class="section-title">Keunggulan Kami</h2>
             <div class="features-grid">
+                <!--feature card 1-->
                 <div class="feature-card scroll">
                     <i class="fas fa-graduation-cap"></i>
                     <h3>Kurikulum Merdeka</h3>
                     <p>Mengadopsi kurikulum yang disesuaikan dengan kebutuhan siswa dan dunia kerja</p>
                 </div>
+                <!--feature card 2-->
                 <div class="feature-card scroll">
                     <i class="fa-solid fa-user-graduate"></i>
                     <h3>Pengajar Berkualitas</h3>
                     <p>Didukung oleh guru-guru yang berpengalaman dan berkompeten di bidangnya.</p>
                 </div>
+                <!--feature card 3-->
                 <div class="feature-card scroll">
                     <i class="fas fa-award"></i>
                     <h3>Beprestasi</h3>
                     <p>Selalu meraih prestasi di tingkat kecamatan, kabupaten, maupun provinsi</p>
                 </div>
+                <!--feature card 4-->
                 <div class="feature-card scroll">
                     <i class="fas fa-microscope"></i>
                     <h3>Fasilitas Lengkap</h3>
@@ -80,6 +98,7 @@
             </div>
         </div>
     </section>
+    <!--Higlights/features section end-->
 
     <!-- About Section -->
     <section id="tentang" class="about">
@@ -97,6 +116,7 @@
             </div>
         </div>
     </section>
+    <!--about section end-->
 
       <!-- Vision & Mission Section -->
       <section class="vision-mission" id="vision-mission">
@@ -127,38 +147,44 @@
             </div>
         </div>
     </section>
-
+    <!--vision & mission section end-->
     
     <!-- Facilities Section -->
     <section class="facilities" id="facilities">
         <div class="container">
             <h2 class="section-title">Fasilitas Sekolah</h2>
             <div class="facilities-grid">
+                <!--facilitiy-card 1-->
                 <div class="facility-card scroll">
                     <img src="img/ruang-kelas.jpg" alt="Ruang Kelas">
                     <h3>Ruang Kelas Interaktif</h3>
                     <p>Seluruh ruang kelas dilengkapi dengan proyektor, dan koneksi internet cepat untuk mendukung pembelajaran interaktif.</p>
                 </div>
+                <!--facilitiy-card 2-->
                 <div class="facility-card scroll">
                     <img src="img/lab-image.jpg" alt="ruang praktikum siswa">
                     <h3>Ruang Praktikum</h3>
                     <p>Lab komputer, Lab Fiber Optic, Mini hotel, dan peralatan modern untuk praktikum dan penelitian siswa.</p>
                 </div>
+                <!--facilitiy-card 3-->
                 <div class="facility-card scroll">
                     <img src="img/spw.jpg" alt="warung spw">
                     <h3>Warung SPW</h3>
                     <p>Warung Siswa yang dikelola oleh program SPW (Sekolah Pencetak Wirausaha) sebagai wadah pembelajaran kewirausahaan.</p>
                 </div>
+                <!--facilitiy-card 4-->
                 <div class="facility-card scroll">
                     <img src="img/lapangan.jpg" alt="Fasilitas Olahraga">
                     <h3>Fasilitas Olahraga</h3>
                     <p>Lapangan sepak bola, basket, dan voli untuk mendukung pengembangan bakat olahraga siswa.</p>
                 </div>
+                <!--facilitiy-card 5-->
                 <div class="facility-card scroll">
                     <img src="img/rps.jpg" alt="Auditorium">
                     <h3>Ruang Praktek Siswa</h3>
                     <p>Ruang praktik dilengkapi dengan peralatan-peralatan untuk mendukung pembelajaran praktis sesuai dengan jurusan masing-masing siswa.</p>
                 </div>
+                <!--facilitiy-card 6-->
                 <div class="facility-card scroll">
                     <img src="img/masjid.jpg" alt="masjid">
                     <h3>Masjid</h3>
@@ -167,7 +193,7 @@
             </div>
         </div>
     </section>
-
+    <!--facilities section end-->
 
     <!-- Achievements Section -->
     <section class="achievements" id="achievements">
@@ -193,6 +219,7 @@
             </div>
         </div>
     </section>
+    <!--achievements section end-->
 
     <!-- Testimonials Section -->
     <section class="testimonials">
@@ -227,6 +254,7 @@
             </div>
         </div>
     </section>
+    <!--testimonials section end-->
 
     <!-- Contact Form Section -->
     <section id="kontak" class="contact">
@@ -299,6 +327,7 @@
             </div>
         </div>
     </section>
+    <!--contact form section end-->
 
     <!-- Footer -->
     <footer>
@@ -323,7 +352,7 @@
             </div>
         </div>
     </footer>
-
+    
     <script src="./js/script.js"></script>
 </body>
 

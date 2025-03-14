@@ -40,7 +40,7 @@ function setupWelcomeMessage() {
                     visitorNameElement.textContent = name;
                     localStorage.setItem('visitorName', name);
                     nameInput.value = '';
-                    
+
                     // Tampilkan pesan
                     alert(`Selamat datang, ${name}!`);
                 } else {
@@ -60,81 +60,32 @@ function setupWelcomeMessage() {
 // Fungsi untuk validasi form kontak
 function setupContactForm() {
     const messageForm = document.getElementById('messageForm');
-    
+
     if (messageForm) {
         messageForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            
+
             // Mendapatkan semua nilai input
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
-            const subject = document.getElementById('subject')?.value.trim() || ''; // Subject mungkin tidak ada di semua form
+            const subject = document.getElementById('subject')?.value.trim() || '';
             const message = document.getElementById('message').value.trim();
-            
+
             // Reset pesan error sebelumnya
-            const errorElements = document.querySelectorAll('.error-message');
-            errorElements.forEach(element => {
+            document.querySelectorAll('.error-message').forEach(element => {
                 element.textContent = '';
             });
-            
-            // Flag untuk melacak validasi
-            let isValid = true;
-            
-            // Validasi nama
-            if (name === '') {
-                document.getElementById('nameError').textContent = 'Nama tidak boleh kosong';
-                isValid = false;
-            } else if (name.length < 3) {
-                document.getElementById('nameError').textContent = 'Nama minimal 3 karakter';
-                isValid = false;
-            }
-            
-            // Validasi email
-            if (email === '') {
-                document.getElementById('emailError').textContent = 'Email tidak boleh kosong';
-                isValid = false;
-            } else {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    document.getElementById('emailError').textContent = 'Format email tidak valid';
-                    isValid = false;
-                }
-            }
-            
-            // Validasi nomor telepon
-            if (phone === '') {
-                document.getElementById('phoneError').textContent = 'Nomor telepon tidak boleh kosong';
-                isValid = false;
-            } else {
-                const phoneRegex = /^\d{10,}$/;
-                if (!phoneRegex.test(phone)) {
-                    document.getElementById('phoneError').textContent = 'Nomor telepon harus berisi minimal 10 digit angka';
-                    isValid = false;
-                }
-            }
-            
-            // Validasi subjek jika ada
-            if (document.getElementById('subject') && subject === '') {
-                document.getElementById('subjectError').textContent = 'Subjek tidak boleh kosong';
-                isValid = false;
-            }
-            
-            // Validasi pesan
-            if (message === '') {
-                document.getElementById('messageError').textContent = 'Pesan tidak boleh kosong';
-                isValid = false;
-            } else if (message.length < 10) {
-                document.getElementById('messageError').textContent = 'Pesan terlalu pendek (minimal 10 karakter)';
-                isValid = false;
-            }
-            
+
+            // Validasi input
+            const isValid = validateInput(name, email, phone, subject, message);
+
             // Jika validasi berhasil, tampilkan hasil
             if (isValid) {
                 displayFormResult(name, email, phone, subject, message);
             }
         });
-        
+
         // handler untuk tombol tutup pada hasil form
         const closeResultButton = document.getElementById('closeResult');
         if (closeResultButton) {
@@ -145,34 +96,102 @@ function setupContactForm() {
     }
 }
 
+// Fungsi untuk validasi input
+function validateInput(name, email, phone, subject, message) {
+    let isValid = true;
+
+    if (!name) {
+        document.getElementById('nameError').textContent = 'Nama tidak boleh kosong';
+        isValid = false;
+    } else if (name.length < 3) {
+        document.getElementById('nameError').textContent = 'Nama minimal 3 karakter';
+        isValid = false;
+    }
+
+    if (!email) {
+        document.getElementById('emailError').textContent = 'Email tidak boleh kosong';
+        isValid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById('emailError').textContent = 'Format email tidak valid';
+        isValid = false;
+    }
+
+    if (!phone) {
+        document.getElementById('phoneError').textContent = 'Nomor telepon tidak boleh kosong';
+        isValid = false;
+    } else if (!/^\d{10,}$/.test(phone)) {
+        document.getElementById('phoneError').textContent = 'Nomor telepon harus berisi minimal 10 digit angka';
+        isValid = false;
+    }
+
+    if (document.getElementById('subject') && !subject) {
+        document.getElementById('subjectError').textContent = 'Subjek tidak boleh kosong';
+        isValid = false;
+    }
+
+    if (!message) {
+        document.getElementById('messageError').textContent = 'Pesan tidak boleh kosong';
+        isValid = false;
+    } else if (message.length < 10) {
+        document.getElementById('messageError').textContent = 'Pesan terlalu pendek (minimal 10 karakter)';
+        isValid = false;
+    }
+
+    return isValid;
+}
+
 // Fungsi untuk menampilkan hasil form setelah submit
 function displayFormResult(name, email, phone, subject, message) {
     const formResult = document.getElementById('formResult');
     const resultContent = document.getElementById('resultContent');
-    
+
     if (formResult && resultContent) {
         let resultHTML = `
             <p><strong>Nama:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Nomor Telepon:</strong> ${phone}</p>
         `;
-        
+
         if (subject) {
             resultHTML += `<p><strong>Subjek:</strong> ${subject}</p>`;
         }
-        
+
         resultHTML += `<p><strong>Pesan:</strong> ${message}</p>`;
-        
+
         resultContent.innerHTML = resultHTML;
         formResult.style.display = 'block';
-        
+
         // Scroll ke hasil
         formResult.scrollIntoView({ behavior: 'smooth' });
-        
+
         // Reset form
         document.getElementById('messageForm').reset();
     }
 }
+
+//fungsi untuk auto slide banner
+let bannerIndex = 0;
+
+function nextBanner() {
+    bannerIndex++
+    showBanner()
+}
+
+function showBanner(){
+    const banners = document.getElementsByClassName('banner-img');
+    for(let i = 0; i < banners.length; i++){
+        banners[i].style.display = 'none';
+    }
+
+    if (bannerIndex >= banners.length){
+        bannerIndex = 0;
+    }
+
+    //menampilkan banner
+    banners[bannerIndex].style.display = 'block';
+};
+
+setInterval(nextBanner, 3000);
 
 // Inisialisasi semua fungsi saat dokumen dimuat
 document.addEventListener('DOMContentLoaded', function() {

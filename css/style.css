@@ -9,7 +9,7 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #333;
     line-height: 1.6;
     background-color: #f8f9fa;
@@ -151,7 +151,9 @@ header .container {
     background-color: #0056b3;
     transition: all 0.3s ease;
 }
-
+.nav-links a:hover {
+    color:#0056b3;
+}
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
@@ -169,18 +171,41 @@ header .container {
 
 /* Hero Section */
 .hero {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.7)), url('../img/gedung-sekolah.jpg');
-    background-size: cover;
-    background-position: center;
     color: #fff;
     text-align: center;
-    padding: 100px 20px;
     position: relative;
+    width: 100%;
+    
+}
+
+.banner-img {
+    background-size: cover;
+    background-position: center;
+    height: 800px;
+}
+
+.banner-1 {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.7)),
+     url('../img/gedung-sekolah.jpg');
+
+}
+.banner-2 {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.7)),
+     url('../img/hero.jpg');
+
+}
+.banner-3 {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.7)),
+     url('../img/suasana.jpg');
+
 }
 
 .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .hero-content h1 {
@@ -644,7 +669,7 @@ footer {
 .scroll {
     animation: appear linear;
     animation-timeline: view();
-    animation-range: entry 0% cover 30%;
+    animation-range: entry 0% cover 35%;
 }
 
 /* Responsive Design */
